@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //Defining integers
+    int attempt = 1;
+    int number = 47;
+    int guess;
+    cout<<"Guess a number between 1 and 100"<<endl;
+
+    cin>>guess;
+
+    //Loop for guessing the number
+    while (guess != number){
+
+        //Displaying if the number is too high
+        if (guess > number){
+            cout<<"Too high"<<endl<<"Guess again"<<endl;
+            cin>>guess;
+            ++attempt;}
+
+        //Displaying if the number is too low
+        if (guess < number){
+            cout<<"Too low"<<endl<<"Guess again"<<endl;
+            cin>>guess;
+            ++attempt;}
+    }
+
+    //Displaying if you guessed the right number
+    if (guess == number){
+        cout<<"Correct, you got it in "<<attempt<<" attempt(s)"<<endl;
+    }
+    return 0;
+}
