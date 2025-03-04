@@ -1,1 +1,1 @@
-Simple code to try to guess a number adn keep track of attempts.
+Simple code to try to guess a number and keep track of attempts.
