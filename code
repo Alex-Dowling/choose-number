@@ -1,36 +1,69 @@
 #include <iostream>
 
+#include <cstdlib>
+
+#include <cmath>
+
 using namespace std;
 
 int main()
 {
+
     //Defining integers
     int attempt = 1;
-    int number = 47;
-    int guess;
+    int number = rand() % 101;
+    double guess;
+
+    //Asking for Input from User
     cout<<"Guess a number between 1 and 100"<<endl;
 
     cin>>guess;
 
     //Loop for guessing the number
-    while (guess != number){
+
+
+
+    while (true){
+
+        if (cin.fail())
+            {
+            cout<<"Please enter an integer not a character"<<endl;
+            cin.clear();
+            cin.ignore();
+            cin>>guess;
+            }
+
+        // Making sure users don't guess decimals
+        if (floor(guess) != guess){
+            cout<<"Please guess an integer not a decimal"<<endl;
+            cin>>guess;
+            ++attempt;
+            }
+
 
         //Displaying if the number is too high
-        if (guess > number){
-            cout<<"Too high"<<endl<<"Guess again"<<endl;
-            cin>>guess;
-            ++attempt;}
+        else if(guess != number){
+                if (guess > number){
+                    cout<<"Too high"<<endl<<"Guess again"<<endl;
+                    cin>>guess;
+                    ++attempt;}
 
         //Displaying if the number is too low
-        if (guess < number){
-            cout<<"Too low"<<endl<<"Guess again"<<endl;
-            cin>>guess;
-            ++attempt;}
+                if (guess < number){
+                    cout<<"Too low"<<endl<<"Guess again"<<endl;
+                    cin>>guess;
+                    ++attempt;
+        }
     }
 
-    //Displaying if you guessed the right number
-    if (guess == number){
-        cout<<"Correct, you got it in "<<attempt<<" attempt(s)"<<endl;
+        //Displaying if you guessed the right number
+        if (guess == number){
+            cout<<"Correct, you got it in "<<attempt<<" attempt(s)"<<endl;
+
+        break;
+        }
+
+
     }
     return 0;
 }
