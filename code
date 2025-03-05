@@ -61,7 +61,7 @@ int main()
 
         //Displaying if you guessed the right number
         if (guess == number){
-            cout<<"Correct, you got it in "<<attempt<<" attempt(s)"<<endl;
+            cout<<"Correct the number is "<<number<<" you got it in "<<attempt<<" attempt(s)"<<endl;
 
         break;
         }
