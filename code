@@ -4,6 +4,8 @@
 
 #include <cmath>
 
+#include <ctime>
+
 using namespace std;
 
 int main()
@@ -11,6 +13,7 @@ int main()
 
     //Defining integers
     int attempt = 1;
+    srand(time(0));
     int number = rand() % 101;
     double guess;
 
