@@ -8,6 +8,7 @@
 
 #include <limits>
 
+
 using namespace std;
 
 int main()
@@ -15,8 +16,10 @@ int main()
 
     //Defining integers
     int attempt = 1;
+
     srand(time(0));
     int number = rand() % 101;
+
     double guess;
 
     //Asking for Input from User
@@ -25,11 +28,9 @@ int main()
     cin>>guess;
 
     //Loop for guessing the number
-
-
-
     while (true){
 
+        //Checking if the guess is a number
         if (cin.fail())
             {
             cout<<"Please enter an integer not a character"<<endl;
@@ -38,31 +39,39 @@ int main()
             cin>>guess;
             }
 
-        // Making sure users don't guess decimals
-        if (floor(guess) != guess){
-            cout<<"Please guess an integer not a decimal"<<endl;
-            cin>>guess;
-            ++attempt;
-            }
+        //If the guess doesn't equal the number
+        else if(round(guess) != number){
 
-
-        //Displaying if the number is too high
-        else if(guess != number){
-                if (guess > number){
+                //Displaying if the number is too high
+                if (round(guess) > number){
+                    if (round(guess) != guess)
+                    {
+                            cout<<"Answer rounded to "<<round(guess)<<endl;
+                    }
                     cout<<"Too high"<<endl<<"Guess again"<<endl;
+                    cin.clear();
                     cin>>guess;
                     ++attempt;}
 
-        //Displaying if the number is too low
-                if (guess < number){
+                //Displaying if the number is too low
+                if (round(guess) < number){
+                    if (round(guess) != guess)
+                    {
+                            cout<<"Answer rounded to "<<round(guess)<<endl;
+                    }
                     cout<<"Too low"<<endl<<"Guess again"<<endl;
+                    cin.clear();
                     cin>>guess;
                     ++attempt;
         }
     }
 
         //Displaying if you guessed the right number
-        if (guess == number){
+        if (round(guess) == number){
+            if (round(guess) != guess)
+                    {
+                            cout<<"Answer rounded to "<<round(guess)<<endl;
+                    }
             cout<<"Correct the number is "<<number<<" you got it in "<<attempt<<" attempt(s)"<<endl;
 
         break;
